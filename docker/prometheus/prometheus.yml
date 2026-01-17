@@ -6,7 +6,9 @@ scrape_configs:
   - job_name: 'api-gateway'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ['host.docker.internal:9000']
+        labels:
+          application: 'API-Gateway'
 
   - job_name: 'product-service'
     metrics_path: '/actuator/prometheus'
